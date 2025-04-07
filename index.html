@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: garamond, serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1e1e1e; /* Darker header background */
+            color: #ffffff;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('./images/homepage.jpg'); /* Replace with the path to your image */
+            background-size: cover; /* Ensures the image covers the entire section */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Ensures the content is above the overlay */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scroll-down {
+            display: block;
+            margin: 20px auto 0;
+            font-size: 2em;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #1e1e1e; /* Dark card background */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: #ffffff; /* Light text for titles */
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #b0b0b0; /* Slightly lighter text for descriptions */
+        }
+
+        /* Buttons */
+        .hero-btn,
+        .card-content button,
+        .mythology-card button,
+        .history-card button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff; /* Blue background */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-btn:hover,
+        .card-content button:hover,
+        .mythology-card button:hover,
+        .history-card button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Filter Dropdown */
+        .filter {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .filter label {
+            font-size: 1rem;
+            margin-right: 10px;
+            color: #ffffff;
+        }
+
+        .filter select {
+            padding: 5px 10px;
+            font-size: 1rem;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Did You Know Sidebar */
+        .did-you-know {
+            position: sticky;
+            top: 20%;
+            right: 20px;
+            width: 300px;
+            background-color: #1e1e1e;
+            border: 1px solid #444444;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .did-you-know h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .did-you-know p {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin: 0 0 15px;
+        }
+
+        .did-you-know button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .did-you-know button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Divider Styles */
+        .section-divider {
+            border: none;
+            border-top: 2px solid #444444; /* Dark gray line */
+            margin: 40px auto;
+            width: 80%; /* Adjust width as needed */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-links ul li {
+            display: inline;
+        }
+
+        .footer-links ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer-links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-social a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-social a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jpg" alt="MyLogo" style="height: 50px;">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mythology-section">Mythology</a></li>
+                <li><a href="#timeline-section">History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to my collection of timeless tales and historic echoes</h1>
+            <p>This is a space where myths, legends, and real history come together. From ancient gods and epic battles to forgotten cultures and fascinating facts, I share stories that shaped the world—and maybe a few you’ve never heard of. If you’re into cool tales and historical deep dives, you’re in the right place.</p>
+            <div class="hero-introductions">
+                <div class="intro">
+                    <h2>Mythology</h2>
+                    <p>Explore the legends of gods, heroes, and mythical creatures from Greek, Norse, and Egyptian mythology.</p>
+                    <a href="#mythology-section" class="hero-btn">Learn More</a>
+                </div>
+                <div class="intro">
+                    <h2>History</h2>
+                    <p>Dive into the rich history of ancient civilizations like Egypt, Rome, and the Indus Valley.</p>
+                    <a href="#timeline-section" class="hero-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <a href="#mythology-section" class="scroll-down">↓</a>
+    </section>
+    <main>
+        <section id="mythology-section">
+            <div class="filter">
+                <label for="region-filter">Filter by Region:</label>
+                <select id="region-filter">
+                    <option value="all">All</option>
+                    <option value="europe">Europe</option>
+                    <option value="asia">Asia</option>
+                    <option value="africa">Africa</option>
+                </select>
+            </div>
+            <div class="card-grid">
+                <div class="card" data-region="europe">
+                    <img src="https://naxosculturaltours.gr/wp-content/uploads/2021/07/zeus.jpg" alt="Greek Mythology">
+                    <div class="mythology-card">
+                        <h3>Greek Mythology</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Mighty Gods of Olympus</h4>
+                          <p>
+                            In ancient Greek mythology, the gods and goddesses ruled from the heights of Mount Olympus, overseeing the lives of mortals with their immense power and often unpredictable whims. At the head of this divine pantheon stood Zeus, the king of the gods, wielder of thunderbolts, and enforcer of justice—though not always faithful to his wife, Hera, the fiercely protective goddess of marriage. Together with their siblings and children, they shaped the world, controlled the elements, and meddled in human affairs, leaving behind legendary tales of love, war, and vengeance.</p>
+                          <a href="https://www.theoi.com/greek-mythology/greek-gods.html">Full Story →</a>
+                        </div>
+                      </div>
+                      <script>
+                        function toggleDetails(button) {
+                          const details = button.nextElementSibling;
+                          details.hidden = !details.hidden;
+                          button.setAttribute("aria-expanded", details.hidden ? "false" : "true");
+                          button.textContent = details.hidden ? "Read More ↓" : "Collapse ↑";
+                        }
+                      </script>
+                </div>
+                <div class="card" data-region="europe">
+                    <img src="https://norse-mythology.org/wp-content/uploads/2012/11/Battle-of-the-Doomed-Gods.jpg" alt="Norse Mythology">
+                    <div class="mythology-card">
+                        <h3>Norse Mythology</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Norse Pantheon</h4>
+                            <p>
+                                Norse mythology is a rich tapestry of gods, giants, and cosmic adventures rooted in the ancient beliefs of the Scandinavian people. At its heart are powerful figures like Odin, the wise Allfather; Thor, the thunder-wielding protector; and Loki, the cunning trickster. These myths speak of creation and destruction, heroic quests, and the inevitable fate of Ragnarök—the end of the world and its rebirth. Full of raw emotion, epic battles, and deep symbolism, Norse mythology continues to captivate imaginations to this day.                            </p>
+                            <a href="https://www.norsemythology.org/">Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-region="africa">
+                    <img src="https://digitalmapsoftheancientworld.com/wp-content/uploads/2024/02/7e4bcc104623271.5f6765fa14ad5.png?w=1024" alt="Egyptian Mythology">
+                    <div class="mythology-card">
+                        <h3>Egyptian Mythology</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Gods of Ancient Egypt</h4>
+                            <p>
+                                Egyptian mythology is a fascinating blend of gods, magic, and the afterlife, deeply tied to the rhythms of nature and the Nile. It features deities like Ra, the sun god who sails across the sky; Osiris, ruler of the underworld; and Isis, the goddess of healing and magic. These stories explore creation, death, and rebirth, often emphasizing balance through the concept of ma'at—cosmic order and justice. With its rich symbolism and sacred rituals, Egyptian mythology offers a timeless glimpse into one of the world’s most enduring ancient cultures.
+                            </p>
+                            <a href="https://www.egyptianmyths.net/">Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decorative Divider -->
+        <!-- <div class="decorative-divider">
+            <img src="./images/greek-key-pattern.jpg" alt="Greek Key Pattern Divider">
+        </div> -->
+        <!-- Simple Divider -->
+        <hr class="section-divider">
+
+        <section id="timeline-section">
+            <div class="card-grid">
+                <div class="card" data-region="africa">
+                    <img src="https://i.natgeofe.com/k/109a4e08-5ebc-48a5-99ab-3fbfc1bbd611/Giza_Egypt_KIDS_0123.jpg" alt="Ancient Egypt">
+                    <div class="history-card">
+                        <h3>Ancient Egypt</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Civilization of the Nile</h4>
+                            <p>
+                                The history of ancient Egypt spans over 3,000 years, marked by powerful pharaohs, monumental architecture, and a deep connection to religion and the afterlife. From the unification of Upper and Lower Egypt around 3100 BCE, through the grandeur of the Old, Middle, and New Kingdoms, Egypt flourished along the life-giving Nile. It saw the construction of the iconic pyramids, the reign of legendary figures like Hatshepsut, Akhenaten, and Ramses II, and rich cultural achievements in writing, art, and science. Though eventually conquered by foreign powers, ancient Egypt's legacy continues to inspire and mystify the world.                            </p>
+                            <a href="https://www.history.com/topics/ancient-egypt">Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-region="europe">
+                    <img src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,w_1200,h_630,g_auto/dpr_auto/f_auto/q_auto:eco/v1/ancient-rome-hero?_a=BAVAZGDX0" alt="Ancient Rome">
+                    <div class="history-card">
+                        <h3>Ancient Rome</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Roman Empire</h4>
+                            <p>
+                                The history of ancient Rome is a tale of ambition, conquest, and transformation. Beginning as a small city-state in the 8th century BCE, Rome grew into one of the most powerful empires in history. From the days of the Roman Republic to the rise of the Roman Empire under Augustus, it shaped the Western world through its laws, architecture, military might, and culture. Legendary figures like Julius Caesar, Cicero, and Constantine left lasting marks on history. Though the empire eventually fell, Rome’s legacy lives on in modern government, language, and infrastructure.                            </p>
+                            <a href="https://www.history.com/topics/ancient-rome">Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" data-region="asia">
+                    <img src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/mesopotamia-gettyimages-152200992?_a=BAVAZGDX0" alt="Indus Valley Civilization">
+                    <div class="history-card">
+                        <h3>Mesopotamian Civilization</h3>
+                        <button aria-expanded="false" onclick="toggleDetails(this)">Read More ↓</button>
+                        <div class="details" hidden>
+                            <h4>The Cradle of Civilization</h4>
+                            <p>
+                                Ancient Mesopotamia, located between the Tigris and Euphrates rivers, is often called the "Cradle of Civilization." It was home to some of the earliest cities, writing systems, and legal codes in human history. Civilizations like the Sumerians, Akkadians, Babylonians, and Assyrians thrived here, building complex societies with advanced agriculture, trade, and governance. From the Epic of Gilgamesh to Hammurabi’s Code, Mesopotamia laid the foundation for much of human progress and continues to influence modern culture and law.                            </p>
+                            <a href="https://www.ancient.eu/Indus_Valley_Civilization/">Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside class="did-you-know">
+            <h2>Did You Know?</h2>
+            <p id="fact">The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.</p>
+            <button id="refresh-fact">Refresh Fact</button>
+        </aside>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./images/logo.jpg" alt="MyLogo" style="height: 40px;">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#mythology-section">Mythology</a></li>
+                    <li><a href="#timeline-section">History</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank">Email</a> |
+                <a href="https://twitter.com" target="_blank">Github</a> |
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sidra Ayoob. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
