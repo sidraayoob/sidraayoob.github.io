@@ -1,4 +1,4 @@
-/* Timeline Section */
+
 .timeline {
     position: relative;
     margin: 2rem auto;
@@ -13,7 +13,7 @@
     left: 50%;
     width: 2px;
     height: 100%;
-    background-color: #ccc; /* Vertical line */
+    background-color: #ccc; 
     transform: translateX(-50%);
     z-index: 0;
 }
@@ -42,7 +42,7 @@
     top: 20px;
     width: 16px;
     height: 16px;
-    background-color: #007bff; /* Dot color */
+    background-color: #007bff;
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 0 0 0 2px #ccc;
@@ -71,402 +71,26 @@
     color: #666;
 }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 120vh; /* Increased height for more content */
-    background-image: url('./images/homepage.jpg'); /* Ensure the path is correct */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding: 0 20px;
-    overflow: hidden; /* Prevents content overflow */
+
+
+body {
+    margin: 0;
+    font-family: garamond, serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* Ensures content is above the overlay */
-    text-align: center; /* Centers the text */
-    max-width: 90%; /* Ensures content fits on smaller screens */
-    margin: 0 auto;
-    padding: 0 10px; /* Adds padding for smaller devices */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Adds shadow for better text contrast */
-}
-
-.hero-content h1 {
-    font-size: 3rem; /* Larger heading */
-    margin: 0 0 20px;
-}
-
-.hero-content p {
-    font-size: 1.5rem; /* Larger paragraph text */
-    margin: 0 0 30px;
-}
-
-.hero-introductions {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.hero-introductions .intro {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 45%; /* Adjust width for two columns */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.hero-introductions .intro h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.hero-introductions .intro p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.hero-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.hero-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Scroll Down Button */
-.scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    color: white;
-    text-decoration: none;
-    animation: bounce 2s infinite;
-    z-index: 2;
-}
-
-.scroll-down:hover {
-    color: #ddd;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
-}
-
-.logo img {
-    height: 50px;
-    display: block;
-}
-
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem; /* Adjust heading size for smaller screens */
-    }
-
-    .hero-content p {
-        font-size: 1rem; /* Adjust paragraph size for smaller screens */
-    }
-}
-
-/* Card Grid */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min-width for larger cards */
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Tablet View: 2 Columns */
-@media (max-width: 1024px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    }
-}
-
-/* Mobile View: 1 Column */
-@media (max-width: 768px) {
-    .card-grid {
-        grid-template-columns: 1fr; /* 1 column for mobile */
-    }
-}
-
-/* Card Styles */
-.card {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-    width: 100%;
-    height: 200px; /* Increased height for larger images */
-    object-fit: cover;
-}
-
-.mythology-card {
-    padding: 15px;
-    text-align: center;
-}
-
-.mythology-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.4em;
-    color: #333;
-}
-
-.mythology-card button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.mythology-card button:hover {
-    background-color: #0056b3;
-}
-
-.details {
-    margin-top: 10px;
-    color: #666;
-    font-size: 0.9em;
-    display: none;
-}
-
-.details h4 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.details p {
-    margin: 0 0 10px;
-}
-
-.details a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.details a:hover {
-    text-decoration: underline;
-}
-
-.card-content {
-    padding: 20px; /* Increased padding for more spacing inside the card */
-    text-align: center;
-}
-
-.card-content h3 {
-    margin: 0 0 15px; /* Increased spacing below the title */
-    font-size: 1.4em; /* Slightly larger font size for the title */
-    color: #333;
-}
-
-.card-content p {
-    margin: 0 0 15px;
-    color: #666;
-    font-size: 1rem; /* Slightly larger font size for the description */
-}
-
-/* Card Details */
-.card-details {
-    margin-top: 10px;
-    color: #666;
-    font-size: 0.9em;
-    line-height: 1.5;
-}
-
-/* Read More Button */
-.read-more-btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.read-more-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Slightly enlarges the button on hover */
-}
-
-/* Filter Dropdown */
-.filter {
-    margin: 20px;
-    text-align: center;
-}
-
-.filter label {
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.filter select {
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Did You Know Sidebar */
-.did-you-know {
-    position: sticky; /* Sticky on desktop */
-    top: 20%; /* Sticks 20% from the top of the viewport */
-    right: 20px;
-    width: 300px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 1000;
-}
-
-.did-you-know h2 {
-    margin: 0 0 10px;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.did-you-know p {
-    font-size: 1rem;
-    color: #666;
-    margin: 0 0 15px;
-}
-
-.did-you-know button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.did-you-know button:hover {
-    background-color: #0056b3;
-}
-
-/* Decorative Divider */
-.decorative-divider {
-    text-align: center;
-    margin: 40px 0;
-    object-fit: scale-down;
-}
-
-.decorative-divider img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
-    }
-
-    .timeline .event {
-        width: calc(100% - 40px);
-        left: 20px !important;
-    }
-
-    .timeline .event:nth-child(even) {
-        left: 20px !important;
-    }
-
-    .timeline .event::before {
-        left: -20px;
-    }
-
-    .did-you-know {
-        position: relative; /* Normal scroll on mobile */
-        top: auto;
-        right: auto;
-        margin: 20px auto; /* Center it horizontally */
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-/* Default Header Styles */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1e1e1e; /* Darker header background */
+    color: #ffffff;
 }
 
-/* Scrolled Header Styles */
-header.scrolled {
-    background-color: #555; /* Change to a lighter or darker color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for emphasis */
-}
-
-header .logo img {
+.logo img {
     height: 50px;
 }
 
@@ -482,67 +106,266 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
-    padding: 5px 10px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
+    text-decoration: underline;
 }
 
-/* History Card Styles */
-.history-card {
-    padding: 15px;
+/* Hero Section */
+.hero {
+    background-image: url('./images/homepage.jpg'); /* Replace with the path to your image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #ffffff;
     text-align: center;
+    padding: 50px 20px;
+    position: relative;
 }
 
-.history-card h3 {
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensures the content is above the overlay */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scroll-down {
+    display: block;
+    margin: 20px auto 0;
+    font-size: 2em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #1e1e1e; /* Dark card background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
     margin: 0 0 10px;
-    font-size: 1.4em; /* Same font size as Mythology cards */
-    color: #333;
+    font-size: 1.2em;
+    color: #ffffff; /* Light text for titles */
 }
 
+.card-content p {
+    margin: 0;
+    color: #b0b0b0; /* Slightly lighter text for descriptions */
+}
+
+/* Buttons */
+.hero-btn,
+.card-content button,
+.mythology-card button,
 .history-card button {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
+.hero-btn:hover,
+.card-content button:hover,
+.mythology-card button:hover,
 .history-card button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Filter Dropdown */
+.filter {
+    margin: 20px;
+    text-align: center;
+}
+
+.filter label {
+    font-size: 1rem;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.filter select {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Did You Know Sidebar */
+.did-you-know {
+    position: sticky;
+    top: 20%;
+    right: 20px;
+    width: 300px;
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.did-you-know h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.did-you-know p {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin: 0 0 15px;
+}
+
+.did-you-know button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.did-you-know button:hover {
     background-color: #0056b3;
 }
 
-.history-card .details {
-    margin-top: 10px;
-    color: #666;
-    font-size: 0.9em;
-    display: none;
+/* Divider Styles */
+.section-divider {
+    border: none;
+    border-top: 2px solid #444444; /* Dark gray line */
+    margin: 40px auto;
+    width: 80%; /* Adjust width as needed */
 }
 
-.history-card .details h4 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+/* Footer Styles */
+footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.history-card .details p {
-    margin: 0 0 10px;
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-.history-card .details a {
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links ul li {
+    display: inline;
+}
+
+.footer-links ul li a {
     color: #007bff;
     text-decoration: none;
+    font-size: 1rem;
 }
 
-.history-card .details a:hover {
+.footer-links ul li a:hover {
     text-decoration: underline;
+}
+
+.footer-social a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #007bff; 
+    color: #ffffff; 
+    padding: 15px;
+    border-radius: 50%; 
+    text-decoration: none;
+    font-size: 1.5rem; 
+    text-align: center;
+    display: none; 
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3; 
+    transform: translateX(-50%) scale(1.1);
 }

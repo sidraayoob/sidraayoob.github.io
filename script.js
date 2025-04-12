@@ -20,6 +20,13 @@ document.querySelectorAll('.read-more-btn').forEach(button => {
     });
 });
 
+function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    details.hidden = !details.hidden;
+    button.setAttribute("aria-expanded", details.hidden ? "false" : "true");
+    button.textContent = details.hidden ? "Read More ↓" : "Collapse ↑";
+  }
+
 document.addEventListener('DOMContentLoaded', () => {
     const facts = [
         "The Great Pyramid of Giza was the tallest man-made structure in the world for over 3,800 years.",
@@ -62,5 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.display = 'none'; // Hide the card
             }
         });
+    });
+
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = 'flex'; // Show the button
+        } else {
+            backToTop.style.display = 'none'; // Hide the button
+        }
     });
 });
