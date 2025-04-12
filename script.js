@@ -25,7 +25,7 @@ function toggleDetails(button) {
     details.hidden = !details.hidden;
     button.setAttribute("aria-expanded", details.hidden ? "false" : "true");
     button.textContent = details.hidden ? "Read More ↓" : "Collapse ↑";
-  }
+  };
 
 document.addEventListener('DOMContentLoaded', () => {
     const facts = [

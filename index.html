@@ -62,6 +62,14 @@
                           <a href="https://www.worldhistory.org/Greek_Mythology/">Full Story →</a>
                         </div>
                       </div>
+                      <script>
+                        function toggleDetails(button) {
+                        const details = button.nextElementSibling;
+                        details.hidden = !details.hidden;
+                        button.setAttribute("aria-expanded", details.hidden ? "false" : "true");
+                        button.textContent = details.hidden ? "Read More ↓" : "Collapse ↑";
+                        }
+                      </script>
                 </div>
                 <div class="card" data-region="europe">
                     <img src="https://media.mythopedia.com/3F9nV6DxXTx7M8gJyHr7zE/7ed26a263f68eade0869f421a66e7cb2/thor-norse-god-of-thunder.jpg?w=1920&q=50&fit=crop&ar=3:2&crop=faces,entropy&auto=compress,format" alt="Norse Mythology">
